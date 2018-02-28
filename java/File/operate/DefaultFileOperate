@@ -49,7 +49,6 @@ public class DefaultFileOperate extends FileOperate {
 		return result;
 	}
 
-	// 删除条件：根据天数
 	public boolean doSomething(File file) {
 		return false;
 	}
