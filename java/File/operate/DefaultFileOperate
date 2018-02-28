@@ -6,7 +6,7 @@ import java.util.HashMap;
 /**
  * @info <commamd>第一位代表递归，第二位代表操作，其中<0>代表不递归/不操作<1>代表操作/递归。
  * @eg eg:<00>指不要操作当前文件夹下的文件，如果是文件则值不要操作当前文件（文件只关注第二位），<01>指只操作当前文件夹下的文件，<10>指不要操作当前文件夹下的所有文件<11>操作文件夹下的所有文件
- * @author D-
+ * @author D-pawn
  *
  */
 public class DefaultFileOperate extends FileOperate {
