@@ -1,0 +1,22 @@
+package com.lesso.mdm.base.rule;
+
+import java.io.File;
+import java.util.HashMap;
+
+public class FileDelete extends DefaultFileOperate {
+	public static void main(String[] args) {
+		FileDelete delete = new FileDelete();
+		delete.conditionOperation = new HashMap<String, String>();
+		delete.conditionOperation.put("D:\\Stack\\test\\mdm\\Customer", "10");
+		delete.load(new File("D:\\Stack\\test\\mdm"), "11");
+		System.out.println("done");
+	}
+
+	// 删除条件：根据天数
+	public boolean doSomething(File file) {
+		if (dayToDeleting <= 0) {
+			return true;
+		}
+		return (System.currentTimeMillis() - file.lastModified()) / (dayToDeleting * 24 * 60 * 60 * 1000) >= 1.0;
+	}
+}
