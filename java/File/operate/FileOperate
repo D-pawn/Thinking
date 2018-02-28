@@ -1,0 +1,64 @@
+package com.lesso.mdm.base.rule;
+
+import java.io.File;
+import java.util.Map;
+
+public class FileOperate {
+	protected double dayToDeleting;
+	protected static double DEF_DAYTODELETING = 30;
+	protected Map<String, String> conditionOperation;
+
+	public FileOperate() {
+		super();
+		dayToDeleting = DEF_DAYTODELETING;
+	}
+
+	public FileOperate(double dayToDeleting, Map<String, String> noDeletes) {
+		this.dayToDeleting = dayToDeleting;
+		this.conditionOperation = noDeletes;
+	}
+
+	public boolean load(File file, String command) {
+		boolean result = true;
+		// 文件操作
+		if (file.isFile()) {
+			fileHandle(file, command);
+		}
+		// 递归
+		if (file.isDirectory() && recursion(command)) {
+			for (File file2 : getFiles(file)) {
+				load(file2, getCommand(file2));
+			}
+			folderHandle(file, command);
+		}
+		return result;
+	}
+
+	// 文件夹
+	public File[] getFiles(File file) {
+		if (file == null) {
+			return (File[]) CommonRule.EMPTY_ARRAY;
+		}
+		File[] files = file.listFiles();
+		if (files == null) {
+			files = (File[]) CommonRule.EMPTY_ARRAY;
+		}
+		return files;
+	}
+
+	public boolean recursion(String command) {
+		return false;
+	}
+
+	public boolean folderHandle(File file, String command) {
+		return true;
+	}
+
+	public boolean fileHandle(File file, String command) {
+		return true;
+	}
+
+	public String getCommand(File file) {
+		return "";
+	}
+}
