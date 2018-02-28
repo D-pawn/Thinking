@@ -4,6 +4,18 @@ import java.io.File;
 import java.util.HashMap;
 
 public class FileDelete extends DefaultFileOperate {
+	private double dayToDeleting;
+	private static double DEF_DAYTODELETING = 30;
+
+	public FileDelete() {
+		super();
+		dayToDeleting = DEF_DAYTODELETING;
+	}
+
+	public FileDelete(double dayToDeleting) {
+		this.dayToDeleting = dayToDeleting;
+	}
+
 	public static void main(String[] args) {
 		FileDelete delete = new FileDelete();
 		delete.conditionOperation = new HashMap<String, String>();
