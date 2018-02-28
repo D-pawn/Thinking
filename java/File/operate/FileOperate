@@ -1,19 +1,16 @@
+package com.lesso.mdm.base.rule;
 
 import java.io.File;
 import java.util.Map;
 
 public class FileOperate {
-	protected double dayToDeleting;
-	protected static double DEF_DAYTODELETING = 30;
 	protected Map<String, String> conditionOperation;
 
 	public FileOperate() {
 		super();
-		dayToDeleting = DEF_DAYTODELETING;
 	}
 
-	public FileOperate(double dayToDeleting, Map<String, String> noDeletes) {
-		this.dayToDeleting = dayToDeleting;
+	public FileOperate(Map<String, String> noDeletes) {
 		this.conditionOperation = noDeletes;
 	}
 
